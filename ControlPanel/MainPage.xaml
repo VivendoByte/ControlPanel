@@ -65,10 +65,10 @@
             </GridView.ItemTemplate>
         </GridView>
 
-        <ListView ItemsSource="{Binding Items}" x:Name="ControlPanelList" HorizontalContentAlignment="Stretch">
-            <ListView.ItemTemplate>
+        <GridView ItemsSource="{Binding Items}" x:Name="ControlPanelList" HorizontalContentAlignment="Stretch">
+            <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Grid BorderThickness="1" BorderBrush="LightGray" Margin="2" HorizontalAlignment="Stretch" Padding="4">
+                    <Grid Margin="2" HorizontalAlignment="Stretch" Padding="4" BorderThickness="1">
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
@@ -77,13 +77,18 @@
                         <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontWeight="ExtraLight" FontSize="16" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" Margin="8 0 0 0" />
                     </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
+            </GridView.ItemTemplate>
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                 </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>
-        
+            </GridView.ItemContainerStyle>
+        </GridView>
+
     </Grid>
 </Page>
