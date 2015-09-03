@@ -26,11 +26,7 @@
                     <Storyboard>
                         <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelGrid" To="0" d:IsOptimized="True" />
                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="ControlPanelGrid">
-                            <DiscreteObjectKeyFrame KeyTime="0">
-                                <DiscreteObjectKeyFrame.Value>
-                                    <x:Boolean>False</x:Boolean>
-                                </DiscreteObjectKeyFrame.Value>
-                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="False" />
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
@@ -41,11 +37,7 @@
                     <Storyboard>
                         <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelList" To="0" d:IsOptimized="True" />
                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="ControlPanelList">
-                            <DiscreteObjectKeyFrame KeyTime="0">
-                                <DiscreteObjectKeyFrame.Value>
-                                    <x:Boolean>False</x:Boolean>
-                                </DiscreteObjectKeyFrame.Value>
-                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="False" />
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
@@ -66,8 +58,8 @@
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="20" FontWeight="ExtraLight" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Bottom" />
-                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontSize="16" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" />
+                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="18" FontWeight="ExtraLight" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Bottom" />
+                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontWeight="ExtraLight" FontSize="16" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" />
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
@@ -81,8 +73,8 @@
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="20" Grid.Row="0" VerticalAlignment="Bottom" />
-                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontSize="16" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" />
+                        <TextBlock Text="{Binding Name}" Foreground="Black" FontWeight="ExtraLight" FontSize="20" Grid.Row="0" VerticalAlignment="Bottom" Margin="8 0 0 0" />
+                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontWeight="ExtraLight" FontSize="16" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" Margin="8 0 0 0" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
