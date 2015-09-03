@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="ControlPanel.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ControlPanel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:ControlPanel.Models"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Core="using:Microsoft.Xaml.Interactions"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <model:MainViewModel x:Key="viewmodel" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          DataContext="{StaticResource viewmodel}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelGrid" To="0" />
+                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelList" To="1" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelGrid" To="1" />
+                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelList" To="0" />
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!-- vista a griglia -->
+        <ItemsControl ItemsSource="{Binding Items}" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="ControlPanelGrid">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="200" Height="200" Padding="16" BorderThickness="1" BorderBrush="LightGray" Margin="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="20" TextAlignment="Center" Grid.Row="0" VerticalAlignment="Bottom" />
+                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontSize="16" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <ListView ItemsSource="{Binding Items}" x:Name="ControlPanelList" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid BorderThickness="1" BorderBrush="LightGray" Margin="2" HorizontalAlignment="Stretch" Padding="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="20" Grid.Row="0" VerticalAlignment="Bottom" />
+                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontSize="16" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        
+    </Grid>
+</Page>
