@@ -24,8 +24,14 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <Storyboard>
-                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelGrid" To="0" />
-                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelList" To="1" />
+                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelGrid" To="0" d:IsOptimized="True" />
+                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="ControlPanelGrid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Boolean>False</x:Boolean>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="VisualStateWide">
@@ -33,33 +39,39 @@
                         <AdaptiveTrigger MinWindowWidth="600" />
                     </VisualState.StateTriggers>
                     <Storyboard>
-                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelGrid" To="1" />
-                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelList" To="0" />
+                        <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ControlPanelList" To="0" d:IsOptimized="True" />
+                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="ControlPanelList">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Boolean>False</x:Boolean>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
         <!-- vista a griglia -->
-        <ItemsControl ItemsSource="{Binding Items}" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="ControlPanelGrid">
-            <ItemsControl.ItemsPanel>
+        <GridView ItemsSource="{Binding Items}" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="ControlPanelGrid">
+            <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ItemsWrapGrid Orientation="Horizontal" />
                 </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
+            </GridView.ItemsPanel>
+            <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="200" Height="200" Padding="16" BorderThickness="1" BorderBrush="LightGray" Margin="2">
+                    <Grid Width="200" Height="200" Padding="16" Margin="2">
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="20" TextAlignment="Center" Grid.Row="0" VerticalAlignment="Bottom" />
+                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="20" FontWeight="ExtraLight" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Bottom" />
                         <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontSize="16" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" />
                     </Grid>
                 </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            </GridView.ItemTemplate>
+        </GridView>
 
         <ListView ItemsSource="{Binding Items}" x:Name="ControlPanelList" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
