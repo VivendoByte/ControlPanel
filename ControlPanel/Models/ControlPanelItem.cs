@@ -9,6 +9,13 @@ namespace ControlPanel.Models
 {
     class ControlPanelItem : DomainObject
     {
+        private string icon;
+        public string Icon
+        {
+            get { return icon; }
+            set { icon = value; this.RaisePropertyChanged("Icon"); }
+        }
+
         private string name;
         public string Name
         {
@@ -21,6 +28,12 @@ namespace ControlPanel.Models
         {
             get { return description; }
             set { description = value; this.RaisePropertyChanged("Description"); }
+        }
+
+        public ControlPanelItem(string icon)
+        {
+            int value = System.Int32.Parse(icon, System.Globalization.NumberStyles.HexNumber);
+            this.Icon = System.Convert.ToChar(value).ToString();
         }
     }
 }

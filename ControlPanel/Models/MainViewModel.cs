@@ -19,15 +19,15 @@ namespace ControlPanel.Models
         public MainViewModel()
         {
             this.Items = new ObservableCollection<ControlPanelItem>();
-            this.Items.Add(new ControlPanelItem() { Name = "Sistema", Description = "Schermo, notifiche, app, alimentazione" });
-            this.Items.Add(new ControlPanelItem() { Name = "Dispositivi", Description = "Bluetooth, stampanti, mouse" });
-            this.Items.Add(new ControlPanelItem() { Name = "Rete e Internet", Description = "Wi-Fi, modalità aereo, VPN" });
-            this.Items.Add(new ControlPanelItem() { Name = "Personalizzazione", Description = "Sfondo, schermata di blocco, colori" });
-            this.Items.Add(new ControlPanelItem() { Name = "Account", Description = "Il tuo account, impostazioni di sincronizzazione" });
-            this.Items.Add(new ControlPanelItem() { Name = "Data/ora e lingua", Description = "Riconoscimento vocale, area geografica, data" });
-            this.Items.Add(new ControlPanelItem() { Name = "Accessibilità", Description = "Assistente vocale, Lente d'ingrandimento, contrasto elevato" });
-            this.Items.Add(new ControlPanelItem() { Name = "Privacy", Description = "Posizione, fotocamera" });
-            this.Items.Add(new ControlPanelItem() { Name = "Aggiornamento e sicurezza", Description = "Windows Update, ripristino, backup" });
+            this.Items.Add(new ControlPanelItem("e2cb") { Name = "Sistema", Description = "Schermo, notifiche, app, alimentazione" });
+            this.Items.Add(new ControlPanelItem("e090") { Name = "Dispositivi", Description = "Bluetooth, stampanti, mouse" });
+            this.Items.Add(new ControlPanelItem("e12b") { Name = "Rete e Internet", Description = "Wi-Fi, modalità aereo, VPN" });
+            this.Items.Add(new ControlPanelItem("e088") { Name = "Personalizzazione", Description = "Sfondo, schermata di blocco, colori" });
+            this.Items.Add(new ControlPanelItem("e2af") { Name = "Account", Description = "Il tuo account, impostazioni di sincronizzazione" });
+            this.Items.Add(new ControlPanelItem("e164") { Name = "Data/ora e lingua", Description = "Riconoscimento vocale, area geografica, data" });
+            this.Items.Add(new ControlPanelItem("e07f") { Name = "Accessibilità", Description = "Assistente vocale, Lente d'ingrandimento, contrasto elevato" });
+            this.Items.Add(new ControlPanelItem("e131") { Name = "Privacy", Description = "Posizione, fotocamera" });
+            this.Items.Add(new ControlPanelItem("27f2") { Name = "Aggiornamento e sicurezza", Description = "Windows Update, ripristino, backup" });
         }
     }
 }

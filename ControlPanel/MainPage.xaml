@@ -6,8 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:ControlPanel.Models"
-    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:Core="using:Microsoft.Xaml.Interactions"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -55,11 +53,13 @@
                 <DataTemplate>
                     <Grid Width="200" Height="200" Padding="16" Margin="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="18" FontWeight="ExtraLight" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Bottom" />
-                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontWeight="ExtraLight" FontSize="16" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" />
+                        <TextBlock Text="{Binding Icon}" Foreground="Olive" FontFamily="Segoe UI Symbol" FontSize="50" FontWeight="ExtraLight" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Bottom" />
+                        <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="18" FontWeight="ExtraLight" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Bottom" />
+                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontWeight="ExtraLight" FontSize="14" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="2" VerticalAlignment="Top" />
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
