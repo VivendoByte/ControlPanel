@@ -69,12 +69,17 @@
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="2" HorizontalAlignment="Stretch" Padding="4" BorderThickness="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding Name}" Foreground="Black" FontWeight="ExtraLight" FontSize="20" Grid.Row="0" VerticalAlignment="Bottom" Margin="8 0 0 0" />
-                        <TextBlock Text="{Binding Description}" Foreground="DarkGray" FontWeight="ExtraLight" FontSize="16" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" Margin="8 0 0 0" />
+                        <TextBlock Grid.RowSpan="2" Text="{Binding Icon}" Foreground="Olive" FontFamily="Segoe UI Symbol" FontWeight="ExtraLight" FontSize="32" Grid.Row="0" VerticalAlignment="Bottom" Margin="8 0 0 0" />
+                        <TextBlock Text="{Binding Name}" Grid.Column="1" Foreground="Black" FontWeight="ExtraLight" FontSize="20" Grid.Row="0" VerticalAlignment="Bottom" Margin="8 0 0 0" />
+                        <TextBlock Text="{Binding Description}" Grid.Column="1" Foreground="DarkGray" FontWeight="ExtraLight" FontSize="16" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top" Margin="8 0 0 0" />
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
